@@ -19,20 +19,18 @@ import java.util.Set;
 @NoArgsConstructor
 public class User {
 
+  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+  @Getter
+  private final Set<RecentlyEated> recentlyEatedSet = new java.util.LinkedHashSet<>();
   @Id
   @GeneratedValue(generator = "uuid")
   @GenericGenerator(name = "uuid", strategy = "uuid2")
   @Getter
   private String id;
-
   @Column(unique = true, nullable = false)
   @Getter
   @Setter
   private String mail;
-
-  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
-  @Getter
-  private final Set<RecentlyEated> recentlyEatedSet = new java.util.LinkedHashSet<>();
 
   public User(String mail) {
     this.mail = mail;

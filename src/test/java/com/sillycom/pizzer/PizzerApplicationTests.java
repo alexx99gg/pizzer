@@ -12,7 +12,7 @@ class PizzerApplicationTests {
     Assertions.assertDoesNotThrow(this::doNotThrowException);
   }
 
-  private void doNotThrowException(){
+  private void doNotThrowException() {
     //This method will never throw exception
   }
 

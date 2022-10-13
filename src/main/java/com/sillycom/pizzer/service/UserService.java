@@ -12,8 +12,10 @@ public class UserService {
   @Autowired
   private UserRepository userRepository;
 
-  public void createUser(String mail) {
-    userRepository.save(new User(mail));
+  public UserDTO createUser(String mail) {
+    User user = new User(mail);
+    userRepository.save(user);
+    return new UserDTO(user.getId(), user.getMail());
   }
 
   public UserDTO getUserByMail(String mail) {

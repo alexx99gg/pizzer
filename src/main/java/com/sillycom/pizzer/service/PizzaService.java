@@ -3,6 +3,7 @@ package com.sillycom.pizzer.service;
 import com.sillycom.pizzer.model.Pizza;
 import com.sillycom.pizzer.model.RecentlyEated;
 import com.sillycom.pizzer.model.User;
+import com.sillycom.pizzer.model.response.PizzaDTO;
 import com.sillycom.pizzer.repository.PizzaRepository;
 import com.sillycom.pizzer.repository.RecentlyEatedRepository;
 import com.sillycom.pizzer.repository.UserRepository;
@@ -26,8 +27,10 @@ public class PizzaService {
   @Autowired
   private RecentlyEatedRepository recentlyEatedRepository;
 
-  public void createPizza(String name) {
-    pizzaRepository.save(new Pizza(name));
+  public PizzaDTO createPizza(String name) {
+    Pizza pizza = new Pizza(name);
+    pizzaRepository.save(pizza);
+    return new PizzaDTO(pizza.getId(), pizza.getName());
   }
 
   public void eatPizza(String userId, String pizzaId) {

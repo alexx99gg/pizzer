@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserDTO {
+public class PizzaDTO {
 
   private String id;
-  private String email;
+
+  private String name;
 
 }

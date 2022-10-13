@@ -1,6 +1,7 @@
 package com.sillycom.pizzer.controller;
 
 import com.sillycom.pizzer.model.request.CreateUserRequest;
+import com.sillycom.pizzer.model.response.UserDTO;
 import com.sillycom.pizzer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,9 +21,9 @@ public class UserController {
   @Autowired
   private UserService userService;
 
-  @PostMapping("/createUser")
-  public ResponseEntity<Void> createUser(@RequestBody CreateUserRequest createUserRequest) {
-    userService.createUser(createUserRequest.email);
-    return ResponseEntity.ok().build();
+  @PostMapping("/create")
+  public ResponseEntity<UserDTO> createUser(@RequestBody CreateUserRequest createUserRequest) {
+    UserDTO userDTO = userService.createUser(createUserRequest.getEmail());
+    return ResponseEntity.ok().body(userDTO);
   }
 }

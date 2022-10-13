@@ -1,4 +1,4 @@
-package com.sillycom.pizzer.model.response;
+package com.sillycom.pizzer.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class UserDTO {
+public class EatPizzaRequest {
 
-  private String id;
-  private String email;
+  private String userId;
 
+  private String pizzaId;
 }
